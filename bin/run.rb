@@ -1,6 +1,6 @@
 require_relative '../config/environment'
 #require 'pry'
-#cli = CommandLineInterface.new
+
 
 def startCLI
     puts "-----Welcome to my app, here you can find a football statistics!-----"
@@ -9,13 +9,13 @@ def startCLI
                 1) Look up statistics 
                 2) Add to statistics
                 3) Update statistics 
-                4) Delete cpecific item
+                4) Delete specific item
                 5) Exit app"
         choice = STDIN.gets.chomp.to_i
         if choice == 1
             puts "You've chosen lookup CLI"
             start_lookup_CLI 
-            break #refactoring 
+            break 
         elsif choice == 2 
             puts "You've chosen add CLI"
             start_add_CLI 
@@ -25,7 +25,7 @@ def startCLI
             start_update_CLI
             break 
         elsif choice == 4
-            puts "You've chosen delete items"
+            puts "You've chosen delete CLI"
             start_delete_CLI
             break 
         elsif choice == 5
@@ -43,23 +43,23 @@ def start_lookup_CLI
     while true 
         puts "---What action would you like to?---
                 1) lookup players in specific FC
-                2) lookup all FC
-                3) lookup best scores table in specific Tournment"
+                2) lookup all Tournaments where specific FC takes part
+                3) lookup scores info in specific Tournment"
         choice = STDIN.gets.chomp.to_i
         if choice == 1 
             puts "You've chosen lookup players in FC"
             cli.list_of_players
-            break #refactoring 
+            break
         elsif choice == 2
-            puts "You've chosen lookup all FC"
-            cli.list_of_clubs
+            puts "You've chosen lookup all Tournaments where FC takes part"
+            cli.list_of_tournaments 
             break 
         elsif choice == 3
-            puts "You've chosen lookup scores in Tour"
-            cli.best_goalscorers 
+            puts "You've chosen lookup scores info in Tournament"
+            cli.score_info 
             break 
         else 
-            puts "Hi"
+            puts "Try again"
         end 
     end 
 end 
@@ -86,7 +86,7 @@ def start_add_CLI
             cli.create_tournament
             break 
         else 
-            puts "Hi"
+            puts "Try again"
         end 
     end  
 end 
@@ -95,7 +95,7 @@ end
 def start_update_CLI 
     cli = CommandLineInterface.new
     while true 
-        puts "What would you like?
+        puts "---What action would you like to?---
                 1) Update player"
         choice = STDIN.gets.chomp.to_i 
         if choice == 1 
@@ -111,7 +111,7 @@ end
 def start_delete_CLI
     cli = CommandLineInterface.new
     while true 
-        puts "What would you like to?
+        puts "---What action would you like to?---
                 1) Delete player
                 2) Delete FC"
         choice = STDIN.gets.chomp.to_i 
@@ -124,7 +124,7 @@ def start_delete_CLI
             cli.delete_football_club 
             break 
         else 
-            puts "Hi"
+            puts "Try again"
         end 
     end 
 end 

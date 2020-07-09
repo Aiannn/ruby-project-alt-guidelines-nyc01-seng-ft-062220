@@ -1,6 +1,7 @@
 1) Check out all relationship attributes to all models. 
     GOOD
 2) How to exit from infinite loop? From while true 
+    GOOD
 
 3) You need to shift your commandline methods to models
 
@@ -13,3 +14,4 @@
     GOOD
 
 7) Cheking "is there certain player ot FC" (add conditions)
+    GOOD

@@ -1,8 +1,8 @@
 class CommandLineInterface 
    
     #read
-    def list_of_players #done
-        puts "** Do you want to see list of players? **"
+    def list_of_players
+        puts "** Would you like to see list of players? **"
         puts "* Enter a Football club to get started: *"
         a = STDIN.gets.chomp 
         output = FootballClub.find_by(name: a) #nil or instance
@@ -13,40 +13,40 @@ class CommandLineInterface
             end
         else 
             puts "There is no such FC's"
-            list_of_players #recursion (IDK how use it, just guessing)
+            list_of_players #recursion (IDK how use it, just guessing) Now mastered!
         end  
 
-        puts show 
-        startCLI ###refactoring 
+        puts show  
+        startCLI
     end 
 
-    def list_of_clubs #done
-        puts "** Do you want to see list of Football clubs in specific tourmanent?**"
+    def list_of_tournaments
+        puts "** Would you like to see list of Tournaments where FC takes part? **"
         puts "* Enter a Football Club to get started: *"
         enter_club_name = STDIN.gets.chomp                              #entering my fc name
         club_instance = FootballClub.find_by(name: enter_club_name)     #assign my entered name to club instance
         
         if club_instance != nil 
     
-            to = TournamentFootballClub.where(football_club_id: club_instance.id).pluck(:tournament_id)
+            to = TournamentFootballClub.where(football_club_id: club_instance.id).pluck(:tournament_id) #it's array
             
             a=[]
             i = 0
-            while i < to.length 
-                a << Tournament.where(id: to[i]).pluck(:name)
+            while i < to.length                                     #iterate through "to" array to get the tournament's names
+                a << Tournament.where(id: to[i]).pluck(:name)       #and push names to new array
                 i+=1
             end 
         else 
             puts "There is no such FC's"
-            list_of_clubs 
+            list_of_tournaments 
         end 
     
         puts "#{enter_club_name} takes part in #{a.join(', ')} tournaments"
         startCLI 
     end 
 
-    def best_goalscorers 
-        puts "You would like to lookup"
+    def score_info 
+        puts "** Would you like to see the score info? **"
         puts "---Enter the Tournament:"
         tourn = STDIN.gets.chomp 
         tourn_instance = Tournament.find_by(name: tourn)
@@ -70,8 +70,8 @@ class CommandLineInterface
     end 
     
     #create
-    def create_player #done 
-        puts "** You would like to create a new player **"
+    def create_player 
+        puts "** Would you like to create a new player? **"
         
         puts "---Enter the name:"
         player_name = STDIN.gets.chomp 
@@ -80,7 +80,7 @@ class CommandLineInterface
         puts "---Enter the FC:"
         player_fc = STDIN.gets.chomp 
         a = FootballClub.all.find_by(name: player_fc)
-        ##########ZACHITA OT DURAKA NEED ##DONE 
+        
         if a != nil 
             player = Player.create(name: player_name, age: player_age, football_club_id: a.id)
         else 
@@ -92,16 +92,16 @@ class CommandLineInterface
         startCLI 
     end 
 
-    #create
-    def create_fc #done 
-        puts "** You would like to create a new Football Club **"
+    
+    def create_fc 
+        puts "** Would you like to create a new Football Club? **"
         
         puts "---Enter the name:"
         fc_name = STDIN.gets.chomp
         puts "---Enter the tournament:"
         tour = STDIN.gets.chomp 
         tourr = Tournament.find_by(name: tour) #instance of Tournament
-        #######ZACHITA OT DURAKA NEED
+        
         if tourr != nil 
             fc = FootballClub.create(name: fc_name)
             TournamentFootballClub.create(football_club_id: fc.id, tournament_id: tourr.id)
@@ -114,8 +114,8 @@ class CommandLineInterface
         startCLI
     end 
 
-    def create_tournament #done 
-        puts "You would like to create new Tournament"
+    def create_tournament
+        puts "** Would you like to create new Tournament? **"
         puts "---Enter the name:"
         t_name = STDIN.gets.chomp
 
@@ -125,8 +125,9 @@ class CommandLineInterface
         startCLI 
     end 
 
-    def update_player #UPDATE 
-        puts "You would like to update player stats"
+    #update
+    def update_player
+        puts "** Would you like to update player stats? **"
         puts "---Enter the player name:"
         p_name = STDIN.gets.chomp 
         p = Player.find_by(name: p_name)
@@ -148,8 +149,9 @@ class CommandLineInterface
         startCLI 
     end 
 
-    def delete_player #DONE
-        puts "You would like to delete palyer"
+    #delete 
+    def delete_player 
+        puts "** Would you like to delete player? **"
         puts "---Enter the player name:"
         p_name = STDIN.gets.chomp
 
@@ -170,8 +172,8 @@ class CommandLineInterface
         startCLI 
     end 
 
-    def delete_football_club #DONE 
-        puts "You would like to delete FC"
+    def delete_football_club 
+        puts "** Would you like to delete FC? **"
         puts "---Enter the FC name:"
         fc_name = STDIN.gets.chomp 
 
