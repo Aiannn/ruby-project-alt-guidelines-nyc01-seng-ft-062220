@@ -55,7 +55,7 @@ class CommandLineInterface
             ##tp is array of arrays 
         else 
             puts "There is no such a Tournament!"
-            best_goalscorers
+            score_info 
         end 
         
         a = []
