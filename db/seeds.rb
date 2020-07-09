@@ -62,3 +62,16 @@ tp1 = TournamentPlayer.create(tournament_id: champions_league.id, player_id: haz
 tp2 = TournamentPlayer.create(tournament_id: champions_league.id, player_id: ozil.id, player_goals: 2, player_assists: 7)
 tp3 = TournamentPlayer.create(tournament_id: champions_league.id, player_id: modric.id, player_goals: 4, player_assists: 1)
 tp4 = TournamentPlayer.create(tournament_id: champions_league.id, player_id: rashford.id, player_goals: 11, player_assists: 1)
+tp41 = TournamentPlayer.create(tournament_id: champions_league.id, player_id: pulisic.id, player_goals: 3, player_assists: 3)
+tp42 = TournamentPlayer.create(tournament_id: champions_league.id, player_id: messi.id, player_goals: 15, player_assists: 6)
+
+tp5 = TournamentPlayer.create(tournament_id: la_liga.id, player_id: griezmann.id, player_goals: 20, player_assists: 14)
+tp6 = TournamentPlayer.create(tournament_id: la_liga.id, player_id: suarez.id, player_goals: 25, player_assists: 10)
+tp7 = TournamentPlayer.create(tournament_id: la_liga.id, player_id: messi.id, player_goals: 36, player_assists: 20)
+tp8 = TournamentPlayer.create(tournament_id: la_liga.id, player_id: benzema.id, player_goals: 19, player_assists: 15)
+
+tp5 = TournamentPlayer.create(tournament_id: epl.id, player_id: hazard.id, player_goals: 17, player_assists: 17)
+tp6 = TournamentPlayer.create(tournament_id: epl.id, player_id: pulisic.id, player_goals: 10, player_assists: 10)
+tp7 = TournamentPlayer.create(tournament_id: epl.id, player_id: martial.id, player_goals: 16, player_assists: 8)
+tp8 = TournamentPlayer.create(tournament_id: epl.id, player_id: xhaka.id, player_goals: 6, player_assists: 15)
+

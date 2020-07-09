@@ -51,7 +51,7 @@ class CommandLineInterface
         tourn = STDIN.gets.chomp 
         tourn_instance = Tournament.find_by(name: tourn)
         if tourn_instance != nil
-            tp = TournamentPlayer.where(tournament_id: tourn_instance.id).limit(5).pluck(:player_id, :player_goals, :player_assists)
+            tp = TournamentPlayer.where(tournament_id: tourn_instance.id).pluck(:player_id, :player_goals, :player_assists)
             ##tp is array of arrays 
         else 
             puts "There is no such a Tournament!"

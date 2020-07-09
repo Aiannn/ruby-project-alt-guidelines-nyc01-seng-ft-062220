@@ -44,7 +44,7 @@ def start_lookup_CLI
         puts "---What action would you like to?---
                 1) lookup players in specific FC
                 2) lookup all FC
-                3) lookup best goalscorer table in specific Tournment"
+                3) lookup best scores table in specific Tournment"
         choice = STDIN.gets.chomp.to_i
         if choice == 1 
             puts "You've chosen lookup players in FC"
@@ -55,7 +55,7 @@ def start_lookup_CLI
             cli.list_of_clubs
             break 
         elsif choice == 3
-            puts "You've chosen lookup best G/Sc-rs in Tour"
+            puts "You've chosen lookup scores in Tour"
             cli.best_goalscorers 
             break 
         else 
